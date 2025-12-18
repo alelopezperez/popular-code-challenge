@@ -1,0 +1,12 @@
+eval $(minikube docker-env)
+minikube start
+minikube dashboard  
+minikube addons enable ingress
+kubectl config current-context
+minikube tunnel
+
+kubectl apply -f read-deployment.yaml
+
+docker build -t NAME
+ 
+ minikube ip

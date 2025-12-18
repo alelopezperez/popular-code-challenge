@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: crud-ms-ingress
+spec:
+  tls:
+    - hosts:
+        - crud.local
+        - read.local
+      secretName: crud-local-tls
+  rules:
+    - host: crud.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: crud-ms-node
+                port:
+                  number: 80
+    - host: read.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: read-ms-node
+                port:
+                  number: 80
