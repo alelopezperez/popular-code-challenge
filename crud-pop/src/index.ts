@@ -18,10 +18,11 @@ server.listen(3000, () => {
   console.log("Server running on http://localhost:3000/");
 });
 
-const MONGO_URL =
-  "mongodb://mongo:lrRVqlojdFpvccFcudIcqobTjjFohcas@caboose.proxy.rlwy.net:28307";
+console.log();
 
-mongoose.connect(MONGO_URL);
+const CRUD_MONGO_URL = process.env.CRUD_MONGO!;
+
+mongoose.connect(CRUD_MONGO_URL);
 mongoose.connection.on("error", (error: Error) => console.log(error));
 
 export const CRUD_MS_ID = process.env.CRUD_MS_ID;

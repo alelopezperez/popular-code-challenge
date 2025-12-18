@@ -2,6 +2,7 @@ eval $(minikube docker-env)
 minikube start
 minikube dashboard  
 minikube addons enable ingress
+minikube addons enable storage-provisioner
 kubectl config current-context
 minikube tunnel
 
@@ -10,3 +11,20 @@ kubectl apply -f read-deployment.yaml
 docker build -t NAME
  
  minikube ip
+ 
+ kubectl run debug --rm -it --image=curlimages/curl --restart=Never sh
+ kubectl exec -it mongo-0 -- mongosh
+ 
+ mongodb://admin:S3cretPass!@mongo:27017/popular
+ kubectl port-forward svc/mongo 27017:27017
+ kubectl rollout restart deployment crud-ms-node
+ kubectl get pods
+ kubectl logs <pod-name>
+ 
+ kubectl delete statefulset mongo
+ kubectl delete pvc -l app=mongo
+
+
+
+
+

@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "start-dev": "CRUD_MS_ID=123 CRUD_MS_SECRET=123 node dist/index.js",
-    "dev": "CRUD_MS_ID=123 CRUD_MS_SECRET=123 tsx watch --include src ./src/index.ts",
+    "dev": "CRUD_MS_ID=123 CRUD_MS_SECRET=123 CRUD_MONGO=mongodb://mongo:lrRVqlojdFpvccFcudIcqobTjjFohcas@caboose.proxy.rlwy.net:28307 tsx watch --include src ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

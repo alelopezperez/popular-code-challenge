@@ -26,6 +26,11 @@ spec:
                 secretKeyRef:
                   name: crud-ms-secrets
                   key: CRUD_MS_SECRET
+            - name: CRUD_MONGO
+              valueFrom:
+                secretKeyRef:
+                  name: crud-ms-secrets
+                  key: CRUD_MONGO
           imagePullPolicy: Never
           ports:
             - containerPort: 3000
